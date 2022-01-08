@@ -16,7 +16,6 @@ app.use(express.static(path));
 
 //database
 const db = require('./models/index');
-const Skill = db.skills;
 db.mongoose
 	.connect(process.env.MONGODB_CONNECTION_STRING || db.url, {
 		useNewUrlParser: true,
