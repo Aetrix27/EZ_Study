@@ -33,13 +33,13 @@ if (process.env.NODE_ENV === 'production') {
 	app.use(express.static('./client/build'));
 }
 
-testpost = true
-
 app.get('/', function (req, res) {
 	res.sendFile(path + 'index.html');
 });
 
 require('./routes/cardRoutes')(app);
+require('./routes/userRoutes')(app);
+
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;

@@ -10,6 +10,6 @@ module.exports = mongoose => {
       
     );
 
-    const Card = mongoose.model("card", postSchema);
+    const Card = mongoose.model("card", cardSchema);
     return Card;
   };

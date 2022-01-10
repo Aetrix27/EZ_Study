@@ -1,7 +1,7 @@
 import React from "react"
 import "./Landing.css"
 
-function Landing() {
+export default function Landing() {
   return (
     <div className="landing">
       {/* Landing Page 1 <img className="logo1" alt="logo1" src={Logo1} />*/}
@@ -32,4 +32,4 @@ function Landing() {
   )
 }
 
-export default Landing
+//export default Landing

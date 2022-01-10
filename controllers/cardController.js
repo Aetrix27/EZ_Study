@@ -2,15 +2,18 @@ const db = require("../models");
 const Card = db.cards;
 const User = db.users;
 
+// Create a card and save it with the user
 exports.create = (req, res) => { 
+    var card = new Card(req.body);
+    card.author = req.userId;
   
     if (req.userId) {
-      
-        var card = new Post(req.body);
-        card.author = req.userId;
-        post
-        .save()
-        .then(user => {
+      card
+      .save()
+      .then(card => {
+          return User.findById(req.userId);
+      })
+      .then(user => {
           user.cards.unshift(card);
           user.save();
           res.redirect('/user');
@@ -18,8 +21,37 @@ exports.create = (req, res) => {
       .catch(err => {
           console.log(err.message);
       });
-    } else {
+      } else {
         return res.status(401); 
-      } 
+      }
   };
+  
+  // Retrieve all cards from the database.
+exports.findAll = async (req, res) => {
+	try {
+		const cards = await Card.find({});
+		res.json(cards);
+		console.log('CARDS');
+		console.log(cards);
+	} catch (err) {
+		//!
+		console.error(err);
+		res.status(500).send();
+	}
+};
+
+// Find a single card with an id
+exports.findOne = (req, res) => {
+	const id = req.params.id;
+
+	Card.findById(id)
+		.then((data) => {
+			if (!data)
+				res.status(404).send({ message: 'Not found card with id ' + id });
+			else res.send(data);
+		})
+		.catch((err) => {
+			res.status(500).send({ message: 'Error retrieving card with id=' + id });
+		});
+};
   
