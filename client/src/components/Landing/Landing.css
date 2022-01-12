@@ -3,6 +3,7 @@
   font-family: 'Nunito', sans-serif;
   /* Animation */
   /*Shrinking for mobile*/
+  text-align: center;
 }
 
 .landing .hero {
@@ -37,7 +38,7 @@
 
 .landing .hero div h2 {
   font-size: 64px;
-  color: #6580f8;
+  color: #001b94;
   margin: 1rem;
   padding-bottom: 1rem;
 }
@@ -45,7 +46,7 @@
 .landing .hero div p {
   font-family: 'Open Sans', sans-serif;
   font-size: 28px;
-  color: #3C5487;
+  color: #1aaace;
 }
 
 .landing .hero div button {
@@ -54,8 +55,6 @@
   padding: 10px 30px;
   border: none;
   border-radius: 20px;
-  background-image: -webkit-gradient(linear, left top, right top, from(#3A31E0), to(#9D99E6));
-  background-image: linear-gradient(to right, #3A31E0, #9D99E6);
   color: white;
   font-size: 24px;
 }

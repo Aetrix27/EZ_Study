@@ -3,11 +3,11 @@ import axios from "axios";
 const API_URL = "http://localhost:8080/card";
 
 // handles features for posts (submitting, updating, deleting, retrieving posts)
-class postsService {
+class cardsService {
 
     // makes a POST req to backend to submit post into the database
     // takes in title and body of post as well as the author 
-    submitPost(title, content, accessToken) {
+    submitCard(title, content, accessToken) {
         axios
         .post(`${API_URL}/create`, {
             title,

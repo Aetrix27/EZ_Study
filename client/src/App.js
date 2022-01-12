@@ -1,27 +1,40 @@
 import './App.css';
-import { BrowserRouter as Route, Switch } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 //import { Switch, Route, Router } from "react-router-dom";
 
 import NavigationBar from './components/Navbar/NavigationBar';
 import Landing from './components/Landing/Landing';
+import Cards from './components/Cards/Cards';
+import CreateCard from './components/Cards/createCard';
 import { Navbar, Container, Nav } from "react-bootstrap"
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter } from 'react-router-dom/cjs/react-router-dom.min';
+import React from 'react';
 
-//					<Route path="/cards" component={Cards} />
+
+/*
+	<Route component = {Landing} exact path="/" />
+					<Route component = {Cards} path="/cards" />
+					
+					<Route component = { createCard} path="/createCard" />
+*/
+
 function App() {
 	return (
-			<div className="App">
-				Test
+			<div id = "App">
 				<NavigationBar />
-				<Route component={NavigationBar}/>
-				<Landing />
-				<Switch>
 
-					<Route exact path="/" component={Landing} />
-			
+				<Switch>
+					<Route exact path = "/" ><Landing /></Route>
+					<Route component = {Cards} path="/cards" />
+					<Route component = {CreateCard} path="/createCard" />
+
 				</Switch>
+				
+				
 			</div>
+			
 	);
 }
 
