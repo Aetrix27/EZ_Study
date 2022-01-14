@@ -20,12 +20,29 @@ class cardsService {
         })
         .then( response => {
             if (response.status == '200') {
-                console.log('Post was successfully submitted')
+                console.log('Card was successfully submitted')
             }
         })
         .catch(function(error) {
             console.log(error);
         });
+    }
+
+    deleteCard(cardid, accessToken) {
+        axios.delete(API_URL + '/delete/'+ cardid, {
+            headers: {
+            'x-access-token': accessToken
+            },
+            data: cardid
+        });
+    }
+
+    getCards() {
+        return axios.get(API_URL)
+        //.then(function(posts){
+          //  console.log(posts)
+        //}
+        //);
     }
 
 

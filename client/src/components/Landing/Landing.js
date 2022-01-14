@@ -3,6 +3,8 @@ import "./Landing.css"
 import { useSpring, animated } from 'react-spring';
 import ReactDOM from 'react-dom';
 import particlesConfig from './particles-config.js';
+import Typewriter from '../../static/images/typewriter.png'
+import Features from '../../static/images/features.png'
 
 export default function Landing() {
   return (
@@ -13,7 +15,9 @@ export default function Landing() {
           <p>
             Create Study Cards!
           </p>
-          <button>Get Started</button>
+          <a href="/card">
+            <button>Get Started</button>
+          </a>
         </div>
       </div>
 
@@ -36,6 +40,9 @@ export default function Landing() {
           </div>
         </Hero>
     </div>
+    <div className  = "hero">
+      Share with your friends!
+    </div>
 
       {/* Landing Page 2 */}
       <div className="hero2">
@@ -45,6 +52,7 @@ export default function Landing() {
 
         <button>Learn More</button>
       </div>
+      <footer></footer>
     </div>
 
   )
@@ -160,23 +168,17 @@ const cards = [
     title: 'Study Cards that are easy to access and manage.',
     description:
       'Users upload study cards for various subjects.',
-    image: 'https://6jlvz1j5q3.csb.app/undraw_collection.svg',
-    imageRatio: 784 / 1016
+    image: Features,
+    imageRatio: 1016 / 1016
   },
   {
-    title: 'Many Subjects',
+    title: 'Many Subjects and Tools',
     description:
       'Browse other user study cards, ranging from Math to Medicine!',
-    image: 'https://6jlvz1j5q3.csb.app/undraw_upload.svg',
+    image: Typewriter,
     imageRatio: 839 / 1133
   },
-  {
-    title: 'Export your code 🚀',
-    description:
-      "Export your project as a high-quality React codebase. We're lazer focused on helping you build and iterate quickly, but expect that you'll eventually want to export and wrap things up in your favorite code editor.",
-    image: 'https://6jlvz1j5q3.csb.app/undraw_static_assets.svg',
-    imageRatio: 730 / 1030
-  }
+
 ];
 
 //export default Landing

@@ -8,19 +8,8 @@ import cardsService from '../../services/cards-service';
 import UserService from '../../services/user-service';
 
 function Cards() {
-	const { user } = useSelector((state) => state.logged);
-	// const curruser = JSON.parse(window.localStorage.getItem('USER_STATE'));
-	// const newcurruser = JSON.parse(curruser.logged.user);
-
-	// returns access token
-	const currUserFun = () => {
-		if (user) {
-			const currUser = JSON.parse(window.localStorage.getItem('USER_STATE'));
-			const currUserInfo = JSON.parse(currUser.logged.user);
-			const accessToken = currUserInfo.accessToken;
-			return accessToken;
-		}
-	};
+	const user = AuthService.getCurrentUser()
+	var [count, setCount] = useState(0);
 
 	const [data, setData] = useState(null);
 	useEffect(() => {
@@ -40,53 +29,54 @@ function Cards() {
 	//          <input type="button" value="Submit" onClick={deletePost(e._id)}></input>
 
 	const generateCards = () => {
-		return data.map((e) => {
-		
-			return (
-				<div className="cards">
-					<div className="card">
-						<div className="postName">
-							<p>{e.username}</p>
-							<h4>{e.title}</h4>
-						</div>
-					
-						<div className="postBody">
-							<p>{e.content}</p>
-						</div>
-					
-						<input
-							className="button"
-							type="button"
-							value="Delete"
-							onClick={() => cardsService.deleteCard(e._id, currUserFun())}
-						></input>
-					</div>
-				</div>
-			);
-		});
-	};
-
+		return data.map(e => {
+	
+		  return(
+			<div className = 'blurbs'>
+			  <div className='cardHead'>
+				<h1>{e.title}</h1>			
+			  </div>
+			  <p>{e.content}</p>
+			  <div>
+			  <input type="button" value="Delete" onClick={() => cardsService.deleteCard(e._id, AuthService.getCurrentUser().accessToken)}></input>
+			  </div>
+	   
+			</div>
+		  )
+		})
+	
+	  }
 
 	return (
 		<div className="cards">
-			<h1>CARDS</h1>
-
-			{/* Create Post button | Accessed via log-in*/}
-			{currUserFun() && (
-				<button>
-					<NavLink className="createCard" to="/createCard">
-						{' '}
-						New Card
-					</NavLink>
-				</button>
-			)}
-
-			{/* DisplaysPosts */}
-			<div className="displayCards">{data ? generateCards() : 'loading'}</div>
-
+		  <h1>Cards</h1>
+			  
+		  Like this Card Stack? 
+				<div>
+					{count < 1 && <button onClick={() => setCount((count + 1))}>
+						+
+					</button>}
+					<span>{count}</span>
+					{count >= -1 && <button onClick={() => setCount((count - 1))}>
+						-
+					</button>}
+				</div>
+	
+		  {/* Create Post button | Accessed via log-in*/}
+		  {user &&
+			<button>
+			  <NavLink className="createCard" to="/createCard"> + Card</NavLink>
+			</button>
+		  }
+		  
+		  {/* DisplaysPosts */}
+		  <div className="displayCards">
+			{data ? generateCards() : 'loading'}
+		  </div>
+		  
 	
 		</div>
-	);
+	 )
 }
 
 export default Cards;

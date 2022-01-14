@@ -10,16 +10,16 @@
 }
 
 .cards h1 {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Arial';
   font-size: 48px;
-  color: #76C9BF;
+  color: #002291;
   padding: 2rem;
 }
 
 .cards p {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Arial', sans-serif;
   font-size: 24px;
-  color: #3C5487;
+  color: #00287e;
   padding-bottom: 2rem;
 }
 
@@ -29,8 +29,8 @@
   padding: 10px 30px;
   border: none;
   border-radius: 20px;
-  background-image: -webkit-gradient(linear, left top, right top, from(#3A31E0), to(#9D99E6));
-  background-image: linear-gradient(to right, #3A31E0, #9D99E6);
+  background-image: -webkit-gradient(linear, left top, right top, from(#0b00d3), to(#9D99E6));
+  background-image: linear-gradient(to right, #16ffe0, #9D99E6);
   color: white;
   font-size: 24px;
 }

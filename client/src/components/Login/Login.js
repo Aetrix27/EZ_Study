@@ -1,35 +1,58 @@
-import React, { Component } from "react";
+import { React, useEffect, useState } from 'react';
 
 import authService from "../../services/auth-service";
+import { Link, useHistory } from 'react-router-dom';
 
-export default class Login extends Component {
-  constructor(props) {
-    super(props);
+function Login() {
+
+  var history = useHistory();
+    const [loginUsername, setUsername] = useState('');
+    const [loginPassword, setPassword] = useState('');
     // create react references to username and password input elements
-    this.loginUsername = React.createRef();
-    this.loginPassword = React.createRef();
+    //var loginUsername = React.createRef();
+    //var loginPassword = React.createRef();
   
     // declare function to login user on submit
-    this.loginUser = this.loginUser.bind(this);
-  }
+    //var loginUser = loginUser.bind(this);
+  
     // takes current values of inputted username and password and submits it to the backend through auth-services
-    loginUser() {
-      authService.login(this.loginUsername.current.value, this.loginPassword.current.value)
-      console.log(`Username: ${this.loginUsername.current.value} \nPassword: ${this.loginPassword.current.value}`)
+    const loginUser = () => {
+      history.push('/');
+
+      authService.login(loginUsername, loginPassword)
+      console.log(`Username: ${loginUsername} \nPassword: ${loginPassword}`)
     }
 
-  render() {
-    return (
+
+  return (
       <div>
-        <h1> Login </h1>
-        <form onSubmit={this.loginUser}>
-          <label for="register_username">Username: </label><br />
-          <input type="text" ref={this.loginUsername} ></input><br />
-          <label for="login_password">Password: </label><br />
-          <input type="password" ref={this.loginPassword} ></input><br />
-          <input type="button" value="Submit" onClick={this.loginUser}></input>
-        </form>
+      <h1>Login</h1>    
+          <form>
+          <label for="loginUsername"> Username: </label>
+      <br />
+
+      <input
+        type="text"
+        onChange={(e) => {
+          setUsername(e.target.value);
+        }}
+      ></input>
+      <br />
+      <label for="loginPassword"> Password: </label>
+      <br />
+      <input
+        type="password"
+        onChange={(e) => {
+          setPassword(e.target.value);
+        }}
+      ></input>
+      <br />
+
+              <input type="button" value="Submit" onClick={() => loginUser(loginUsername, loginPassword)}></input>
+          </form>
       </div>
-    );
-  }
+  );
+  
 }
+
+export default Login

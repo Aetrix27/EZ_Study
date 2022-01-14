@@ -12,11 +12,14 @@ module.exports = function(app) {
   });
   // POST route that creates a post one authenticated 
   app.post("/card/create",[authJwt.verifyToken], cards.create);
-//   app.post("/post/create", posts.create);
 
   //FOR TESTING PURPOSES ONLY
   // GET route that returns single post with id
   app.get("/card/:id", [authJwt.verifyToken], cards.findOne);
+
+  app.get("/card",  cards.findAll);
+
+  app.delete("/card/delete/:id", [authJwt.verifyToken], cards.delete);
 
 };
     

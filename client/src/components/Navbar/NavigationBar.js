@@ -1,13 +1,15 @@
-import React from "react"
+import React, { useState } from "react"
 import { Redirect } from "react-router-dom"
 import { Navbar, Container, Nav } from "react-bootstrap"
 import "./navbar.css"
 import AuthService from "../../services/auth-service";
 import { Component } from "react"
+import { useHistory } from 'react-router-dom';
 
 //var user = AuthService.getCurrentUser();
 
 export default class NavigationBar extends Component{
+  
   constructor(props) {
     super(props);
     this.user = AuthService.getCurrentUser();
@@ -37,9 +39,12 @@ logoutUser(){
           
           {/* Links Section */}
           <Nav>
-            <Nav.Link className="nav-item" href="/cards">Cards</Nav.Link>
+            <Nav.Link className="nav-item" href="/card">Cards</Nav.Link>
             <Nav.Link className="nav-item" href="/">Home</Nav.Link>
             <Nav.Link className="nav-item" href="/createCard">Make a New Card</Nav.Link>
+            <Nav.Link className="nav-item" href="/login">Login</Nav.Link>
+            <Nav.Link className="nav-item" href="/register">Register</Nav.Link>
+
             {/* Conditional rendering of logged-in features             {!user && <Nav.Link className="nav-item" href="/login">Login page</Nav.Link>}
             {user && <Nav.Link className="nav-item" onClick={logoutUser}>Logout</Nav.Link>}*/}
 
