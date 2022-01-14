@@ -42,9 +42,8 @@ app.get('/', function (req, res) {
 require('./routes/cardRoutes')(app);
 require('./routes/userRoutes')(app);
 
-routes(app);
-app.get('/*', function(req, res) {
-    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+app.get('*', (request, response) => {
+	response.sendFile(path.join(__dirname, 'client/build', 'index.html'));
 });
 
 // set port, listen for requests
