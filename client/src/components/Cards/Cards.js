@@ -13,18 +13,11 @@ function Cards() {
 
 	const [data, setData] = useState(null);
 	useEffect(() => {
-		cardsService.getCards().then((cards) => {
-			var cardData = cards.data;
-			const usernamePromise = cardData.map((element) => {
-				const username = UserService.getUserID(element.author);
-
-				return username.then((elem) => {
-					element.username = elem.data.username;
-				});
-			});
-			Promise.all(usernamePromise).then(() => setData(cardData));
-		});
-	});
+		cardsService.getCards().then(cards => {
+		  setData(cards.data)
+		  // console.log(posts.data)
+		})
+	  })
 	// Gets post from database and returns parsed jsx elements
 	//          <input type="button" value="Submit" onClick={deletePost(e._id)}></input>
 
