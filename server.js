@@ -38,9 +38,14 @@ app.get('/', function (req, res) {
 	res.sendFile(path + 'index.html');
 });
 
+
 require('./routes/cardRoutes')(app);
 require('./routes/userRoutes')(app);
 
+routes(app);
+app.get('/*', function(req, res) {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
