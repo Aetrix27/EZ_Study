@@ -9,7 +9,7 @@
     "scripts": {
         "server": "node server.js",
         "test": "echo \"Error: no test specified\" && exit 1",
-        "build": "cd ./client && npm run build",  
+        "build": "cd ./client && npm run build",
         "install-client": "cd ./client && npm install",
         "heroku-postbuild": "npm run install-client && npm run build",
         "dev": "concurrently \"npm run server\" \"cd ./client && npm start\"",
@@ -17,8 +17,7 @@
     },
     "engines": {
         "node": "14.x"
-      },
-      
+    },
     "keywords": [],
     "author": "",
     "license": "ISC",
