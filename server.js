@@ -15,6 +15,7 @@ app.use(cookieParser());
 app.use(express.static(path));
 
 //database
+
 const db = require('./models/index');
 db.mongoose
 	.connect(process.env.MONGODB_CONNECTION_STRING || db.url, {
