@@ -2,17 +2,18 @@ const express = require('express');
 const dotenv = require('dotenv');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
+const path = require('path');
 
 dotenv.config();
 
-const path = __dirname + '/views/';
+const viewsPath = __dirname + '/views/';
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(express.static(path));
+app.use(express.static(viewsPath));
 
 //database
 
@@ -35,7 +36,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 app.get('/', function (req, res) {
-	res.sendFile(path + 'index.html');
+	res.sendFile(viewsPath + 'index.html');
 });
 
 
