@@ -7,7 +7,7 @@ exports.create = (req, res) => {
   var card = new Card(req.body);
   card.author = req.userId;
 
-  if (req.userId) { var post = new Card(req.body); 
+  if (req.userId) { var card = new Card(req.body); 
     card.author = req.userId;
     card
     .save()
@@ -33,8 +33,7 @@ exports.findAll = async (req, res) => {
 	try {
 		const cards = await Card.find({});
 		res.json(cards);
-		console.log('CARDS');
-		console.log(cards);
+
 	} catch (err) {
 		//!
 		console.error(err);
