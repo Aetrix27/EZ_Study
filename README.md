@@ -1,5 +1,5 @@
 ### EZ Study
-#About
+# About
 EZ Study is an app that makes memorization easier by giving users more customization and streamlining
 the process of creating flashcards online where users can upvote or downvote card stacks! More features such as adding images and more customization and the creation of card
 stacks are currently being added.
@@ -7,10 +7,10 @@ stacks are currently being added.
 
 # Routes:
 
-/ displays the home page
-/createCard allows users to create a card
-/card displays all of the cards
-/card/delete deletes a card
+- / displays the home page
+- /createCard allows users to create a card
+- /card displays all of the cards
+- /card/delete deletes a card
 
 Classes: Card, User 
 Uses axios for backend calls which are login(), logout(), register() and getCurrentUser()
