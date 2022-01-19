@@ -39,7 +39,7 @@ logoutUser(){
           
           {/* Links Section */}
           <Nav>
-            <Nav.Link className="nav-item" href="/card">Cards</Nav.Link>
+            <Nav.Link className="nav-item" href="/cards">Cards</Nav.Link>
             <Nav.Link className="nav-item" href="/">Home</Nav.Link>
             <Nav.Link className="nav-item" href="/createCard">Make a New Card</Nav.Link>
             <Nav.Link className="nav-item" href="/login">Login</Nav.Link>

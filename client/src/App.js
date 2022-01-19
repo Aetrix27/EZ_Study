@@ -28,7 +28,7 @@ function App() {
 
 				<Switch>
 					<Route exact path = "/" ><Landing /></Route>
-					<Route component = {Cards} path="/card" />
+					<Route component = {Cards} path="/cards" />
 					<Route component = {CreateCard} path="/createCard" />
 					<Route path="/register" component={Register} />
 					<Route path="/login" component={Login} />
