@@ -28,7 +28,7 @@ function CardsComponent() {
 
     //submits posts with title, body, and currently authenticated user's accessToken
     const submitCard = () => {
-        history.push('/card');
+        history.push('/cards');
 
         const title = cardTitle
         const content = cardBody
