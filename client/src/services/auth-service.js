@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:8080/user";
+const API_URL = "/user";
 
 // handles authentication for the user (login, logout, register) and also can get the currently authenticated user's info
 

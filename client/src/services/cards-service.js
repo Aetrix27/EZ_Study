@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:8080/card";
+const API_URL = "/card";
 
 // handles features for posts (submitting, updating, deleting, retrieving posts)
 class cardsService {

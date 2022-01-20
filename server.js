@@ -43,10 +43,6 @@ app.get('/', function (req, res) {
 require('./routes/cardRoutes')(app);
 require('./routes/userRoutes')(app);
 
-app.get('/*', (request, response) => {
-	response.sendFile(path.join(__dirname, './client/build', 'index.html'));
-});
-
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
